@@ -2,11 +2,18 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     p {
         font-size: 2rem;
         font-weight: bold;
+        color: white;
+    }
+
+    a {
+        color: rgb(141, 193, 214);
+        text-decoration: none;
     }
 }

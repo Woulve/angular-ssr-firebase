@@ -2,6 +2,8 @@
 
 Blueprint for an Angular Project with Standalone components, lazy loading, Server side rendering with client hydration and firebase hosting with firebase functions.
 
+[See it in action](https://angular-ssr-firebase-7dfdd.web.app/)
+
 Important is, for github actions to work,
 
 ```
