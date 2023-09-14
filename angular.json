@@ -42,7 +42,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-ssr-firebase",
+            "outputPath": "dist/angular-ssr-firebase/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -122,6 +122,61 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/angular-ssr-firebase/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "angular-ssr-firebase:build:development",
+              "serverTarget": "angular-ssr-firebase:server:development"
+            },
+            "production": {
+              "browserTarget": "angular-ssr-firebase:build:production",
+              "serverTarget": "angular-ssr-firebase:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-ssr-firebase:build:production",
+              "serverTarget": "angular-ssr-firebase:server:production"
+            },
+            "development": {
+              "browserTarget": "angular-ssr-firebase:build:development",
+              "serverTarget": "angular-ssr-firebase:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
