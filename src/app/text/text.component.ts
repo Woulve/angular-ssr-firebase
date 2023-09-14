@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss'],
+  templateUrl: './text.component.html',
+  styleUrls: ['./text.component.scss'],
   standalone: true,
 })
-export class TestComponent implements OnInit {
+export class TextComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
